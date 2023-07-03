@@ -39,7 +39,7 @@ int main(void){
     pointer2 = &a;
     *pointer2 = *pointer2 - 2;
     printf("pointer2 : %d\n", pointer2);
-    printf("pointer : %d\n", pointer); /////////////////////확인
+    printf("pointer : %d\n", pointer);
     printf("a : %d", a);
 
     // 포인터 변수의 주소 

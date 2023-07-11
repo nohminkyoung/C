@@ -39,7 +39,6 @@ int main(void){
 
         printf("확인할 카드 2개의 숫자 입력\n");
         scanf("%d %d", &select1, &select2);
-
         select1--;
         select2--;
 
@@ -53,16 +52,21 @@ int main(void){
         int select2_x = conv_pos_x(select2);
         int select2_y = conv_pos_y(select2);
 
-        if(array_card[select1_x][select1_y] == array_card[select2_x][select2_y] // 두개의 값이 같고, 둘 다 안뒤집힌 카드일 때 
-            && check_array[select1_x][select1_y]==0 && check_array[select2_x][select2_y]==0){
-            printf("맞음\n");
-            check_array[select1_x][select1_y] = 1;
-            check_array[select2_x][select2_y] = 1;
+        if (check_array[select1_x][select1_y]==0 && check_array[select2_x][select2_y]==0){
+
+            if(array_card[select1_x][select1_y] == array_card[select2_x][select2_y]){
+                printf("정답\n\n");
+                check_array[select1_x][select1_y] = 1;
+                check_array[select2_x][select2_y] = 1;
+            }else{
+                printf("다른카드선택\n");
+                printf("%d :  %s\n", select1, strcard[array_card[select1_x][select1_y]]);
+                printf("%d :  %s\n", select2, strcard[array_card[select2_x][select2_y]]);
+                failcount++;
+
+            }
         }else{
-            printf("잘못된선택\n");
-            printf("%d :  %s\n", select1, strcard[array_card[select1_x][select1_y]]);
-            printf("%d :  %s\n", select2, strcard[array_card[select2_x][select2_y]]);
-            failcount++;
+            printf("숫자로 나타난 카드 중 선택\n");
         }
 
         int finish = foundall();

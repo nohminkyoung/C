@@ -1,3 +1,0 @@
-book 책
-price 가격
-window 창문
